@@ -1,23 +1,11 @@
-# CodeViewer
+# SwiftyACE
 
-<p align="left">
-	<a href="https://webuild.community">
-        <img src="https://raw.githubusercontent.com/webuild-community/badge/master/svg/made.svg" />
-	</a>
-    <img src="https://img.shields.io/badge/platform-macOS | iOS-lightgrey.svg" alt="platform" />
-</p>
-
-CodeViewer is a custom code editor SwiftUI view, which wrap around the [ace](http://ace.c9.io) editor.
-
-<p align="center">
-	<img width="500" alt="image" src="./misc/img.png">
-	<img width="200" alt="image" src="./misc/img-ios.png">
-</p>
+This is [Ace editor] for SwiftUI a project inspired by [CodeViewer]. SwiftyACE is currently used by [PlantUML4iPad] and its main goal is to select a language to provides a tailored editor experience.
 
 ## Features
 
 - [x] Darkmode, lightmode adopt automatically
-- [x] Syntax highlighting for over 110 languages (TextMate/Sublime Text.tmlanguage files can be imported)
+- [x] Select the Syntax highlighting by over 110 languages (TextMate/Sublime Text.tmlanguage files can be imported)
 - [x] Over 20 themes (TextMate/Sublime Text .tmtheme files can be imported)
 - [x] Support SwiftUI
 
@@ -25,32 +13,29 @@ CodeViewer is a custom code editor SwiftUI view, which wrap around the [ace](htt
 
 ```Swift
 import SwiftUI
-import CodeViewer
+import AceEditor
 
 struct ContentView: View {
-    @State private var json = ""
+    @State private var text = "HELLO ACE!"
     
-    var body: some View {
-        CodeViewer(
-            content: $json,
-            mode: .json,
-            darkTheme: .solarized_dark,
-            lightTheme: .solarized_light,
-            isReadOnly: true,
-            fontSize: 54
+        AceEditorView(
+            content: $text,
+            mode: .plain_text,
+            darkTheme: .monokai,
+            lightTheme: .chrome,
+            isReadOnly: false,
+            fontSize: 12
         )
-        .onAppear {
-            json = """
-            {
-                "hello": "world"
-            }
-            """
-        }
     }
 }
 
 ```
 
-## Requirement
-- iOS >= v13
-- macOS >= v10.15
+## Requirements
+- iOS >= v14
+- macOS >= v11
+
+
+[Ace Editor]: https://ace.c9.io
+[PlantUML4iPad]: https://github.com/bsorrentino/PlantUML4iPad
+[CodeViewer]: https://github.com/dwarvesf/CodeViewer
