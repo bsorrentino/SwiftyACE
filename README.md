@@ -1,6 +1,6 @@
 # SwiftyACE
 
-This is [Ace editor] for SwiftUI a project inspired by [CodeViewer]. SwiftyACE is currently used by [PlantUML4iPad] and its main goal is to select a language to provides a tailored editor experience.
+This is `SwiftUI` code editor based on [Ace editor] inspired by [CodeViewer]. `SwiftyACE` is currently used by [PlantUML4iPad] and its main goal is to **select a language to provides a tailored editor experience**.
 
 ## Features
 
