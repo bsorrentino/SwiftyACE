@@ -5,8 +5,15 @@ import path from "path";
 // const targetPath = "dist";
 const targetPath = path.join( '..', 'Sources', 'CodeViewer', 'Resources', 'ace.bundle')
 
-const copyModesAndSnippet = async () => {
-    const srcPath = path.join('.', 'node_modules', 'ace-builds', 'src-noconflict' ) 
+/**
+ * [copyModesAndSnippet description]
+ *
+ * @param   {string}  syntax  syntax name
+ *
+ * @return  {Promise<void>}  completion handler
+ */
+const copyModesAndSnippet = async ( syntax ) => {
+    const srcPath = path.join('.', syntax ) 
 
     const filter = async (src, dest) => { 
         
@@ -18,8 +25,8 @@ const copyModesAndSnippet = async () => {
 
         const fileName = path.basename(src)
 
-        return  fileName === 'mode-plantuml.js'   ||
-                fileName === 'plantuml.js'        
+        return  fileName === `mode-${syntax}.js`   ||
+                fileName === `${syntax}.js`      
             ;
     }
     return fs.copy( srcPath, targetPath, { overwrite: true, filter: filter, recursive: true } )
@@ -49,5 +56,5 @@ const copyFiles = async () => {
 }
 
 copyFiles()
-.then( copyModesAndSnippet )
+.then( () => copyModesAndSnippet( 'plantuml' ) )
 .then(() => console.info( "files copied!") )
