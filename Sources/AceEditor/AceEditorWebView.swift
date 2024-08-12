@@ -32,7 +32,7 @@ private struct JavascriptFunction {
     }
 }
 
-public class CodeWebView: CustomView {
+public class AceEditorWebView: CustomView {
     
     private struct Constants {
         static let aceEditorDidReady = "aceEditorDidReady"
@@ -158,7 +158,7 @@ public class CodeWebView: CustomView {
     
 }
 
-extension CodeWebView {
+extension AceEditorWebView {
     
     private func initWebView() {
         
@@ -217,7 +217,7 @@ extension CodeWebView {
 
 // MARK: WKScriptMessageHandler
 
-extension CodeWebView: WKScriptMessageHandler {
+extension AceEditorWebView: WKScriptMessageHandler {
 
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
 

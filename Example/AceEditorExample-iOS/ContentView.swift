@@ -1,13 +1,13 @@
 //
 //  ContentView.swift
-//  CodeViewerExample-iOS
+//  AceEditorExample-iOS
 //
-//  Created by Phuc on 07/09/2020.
-//  Copyright © 2020 Dwarves Foundattion. All rights reserved.
+//  Created by bsorrentino on 12/08/24.
+//  Copyright © 2024 Dwarves Foundattion. All rights reserved.
 //
 
 import SwiftUI
-import CodeViewer
+import AceEditor
 
 struct ContentView: View {
     
@@ -71,7 +71,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             
-            CodeViewer(
+            AceEditorView(
                 content: $text,
                 mode: .plantuml,
                 darkTheme: .monokai,
@@ -96,13 +96,7 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        ForEach(ColorScheme.allCases, id: \.self) {
-             ContentView()
-                .preferredColorScheme($0)
-                .previewDisplayName("\($0)")
-        }
-    }
+
+#Preview {
+    ContentView()
 }

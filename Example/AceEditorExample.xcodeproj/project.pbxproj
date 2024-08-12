@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A02014762C6A4964009E3615 /* SwiftyAceEditor in Frameworks */ = {isa = PBXBuildFile; productRef = A02014752C6A4964009E3615 /* SwiftyAceEditor */; };
+		A020147E2C6A5348009E3615 /* AceEditorExample_MACApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020147D2C6A5348009E3615 /* AceEditorExample_MACApp.swift */; };
+		A02014802C6A5348009E3615 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020147F2C6A5348009E3615 /* ContentView.swift */; };
+		A02014822C6A5349009E3615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02014812C6A5349009E3615 /* Assets.xcassets */; };
+		A02014852C6A5349009E3615 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02014842C6A5349009E3615 /* Preview Assets.xcassets */; };
+		A020148B2C6A53C4009E3615 /* SwiftyAceEditor in Frameworks */ = {isa = PBXBuildFile; productRef = A020148A2C6A53C4009E3615 /* SwiftyAceEditor */; };
+		A0925C6F2C6A42F500C62C01 /* AceEditorExample_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0925C6E2C6A42F500C62C01 /* AceEditorExample_iOSApp.swift */; };
+		A0925C712C6A42F500C62C01 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0925C702C6A42F500C62C01 /* ContentView.swift */; };
+		A0925C732C6A42F600C62C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0925C722C6A42F600C62C01 /* Assets.xcassets */; };
+		A0925C762C6A42F600C62C01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0925C752C6A42F600C62C01 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A02014742C6A48ED009E3615 /* SwiftyACE */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftyACE; path = ..; sourceTree = "<group>"; };
+		A020147B2C6A5348009E3615 /* AceEditorExample-MAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AceEditorExample-MAC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A020147D2C6A5348009E3615 /* AceEditorExample_MACApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AceEditorExample_MACApp.swift; sourceTree = "<group>"; };
+		A020147F2C6A5348009E3615 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A02014812C6A5349009E3615 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A02014842C6A5349009E3615 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A02014862C6A5349009E3615 /* AceEditorExample_MAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AceEditorExample_MAC.entitlements; sourceTree = "<group>"; };
+		A0925C6C2C6A42F500C62C01 /* AceEditorExample-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AceEditorExample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0925C6E2C6A42F500C62C01 /* AceEditorExample_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AceEditorExample_iOSApp.swift; sourceTree = "<group>"; };
+		A0925C702C6A42F500C62C01 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A0925C722C6A42F600C62C01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0925C752C6A42F600C62C01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A02014782C6A5348009E3615 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A020148B2C6A53C4009E3615 /* SwiftyAceEditor in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0925C692C6A42F500C62C01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A02014762C6A4964009E3615 /* SwiftyAceEditor in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		087620D424F632DC00A74C6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A02014742C6A48ED009E3615 /* SwiftyACE */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08E5C4DF24EE3D2E000E8954 = {
+			isa = PBXGroup;
+			children = (
+				A0925C6D2C6A42F500C62C01 /* AceEditorExample-iOS */,
+				A020147C2C6A5348009E3615 /* AceEditorExample-MAC */,
+				08E5C4E924EE3D2E000E8954 /* Products */,
+				087620D424F632DC00A74C6C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		08E5C4E924EE3D2E000E8954 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0925C6C2C6A42F500C62C01 /* AceEditorExample-iOS.app */,
+				A020147B2C6A5348009E3615 /* AceEditorExample-MAC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A020147C2C6A5348009E3615 /* AceEditorExample-MAC */ = {
+			isa = PBXGroup;
+			children = (
+				A020147D2C6A5348009E3615 /* AceEditorExample_MACApp.swift */,
+				A020147F2C6A5348009E3615 /* ContentView.swift */,
+				A02014812C6A5349009E3615 /* Assets.xcassets */,
+				A02014862C6A5349009E3615 /* AceEditorExample_MAC.entitlements */,
+				A02014832C6A5349009E3615 /* Preview Content */,
+			);
+			path = "AceEditorExample-MAC";
+			sourceTree = "<group>";
+		};
+		A02014832C6A5349009E3615 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A02014842C6A5349009E3615 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A0925C6D2C6A42F500C62C01 /* AceEditorExample-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A0925C6E2C6A42F500C62C01 /* AceEditorExample_iOSApp.swift */,
+				A0925C702C6A42F500C62C01 /* ContentView.swift */,
+				A0925C722C6A42F600C62C01 /* Assets.xcassets */,
+				A0925C742C6A42F600C62C01 /* Preview Content */,
+			);
+			path = "AceEditorExample-iOS";
+			sourceTree = "<group>";
+		};
+		A0925C742C6A42F600C62C01 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A0925C752C6A42F600C62C01 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A020147A2C6A5348009E3615 /* AceEditorExample-MAC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A02014872C6A5349009E3615 /* Build configuration list for PBXNativeTarget "AceEditorExample-MAC" */;
+			buildPhases = (
+				A02014772C6A5348009E3615 /* Sources */,
+				A02014782C6A5348009E3615 /* Frameworks */,
+				A02014792C6A5348009E3615 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AceEditorExample-MAC";
+			packageProductDependencies = (
+				A020148A2C6A53C4009E3615 /* SwiftyAceEditor */,
+			);
+			productName = "AceEditorExample-MAC";
+			productReference = A020147B2C6A5348009E3615 /* AceEditorExample-MAC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A0925C6B2C6A42F500C62C01 /* AceEditorExample-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0925C772C6A42F600C62C01 /* Build configuration list for PBXNativeTarget "AceEditorExample-iOS" */;
+			buildPhases = (
+				A0925C682C6A42F500C62C01 /* Sources */,
+				A0925C692C6A42F500C62C01 /* Frameworks */,
+				A0925C6A2C6A42F500C62C01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AceEditorExample-iOS";
+			packageProductDependencies = (
+				A02014752C6A4964009E3615 /* SwiftyAceEditor */,
+			);
+			productName = "AceEditorExample-iOS";
+			productReference = A0925C6C2C6A42F500C62C01 /* AceEditorExample-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08E5C4E024EE3D2E000E8954 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				ORGANIZATIONNAME = "Dwarves Foundattion";
+				TargetAttributes = {
+					A020147A2C6A5348009E3615 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					A0925C6B2C6A42F500C62C01 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 08E5C4E324EE3D2E000E8954 /* Build configuration list for PBXProject "AceEditorExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 08E5C4DF24EE3D2E000E8954;
+			packageReferences = (
+			);
+			productRefGroup = 08E5C4E924EE3D2E000E8954 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0925C6B2C6A42F500C62C01 /* AceEditorExample-iOS */,
+				A020147A2C6A5348009E3615 /* AceEditorExample-MAC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A02014792C6A5348009E3615 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A02014852C6A5349009E3615 /* Preview Assets.xcassets in Resources */,
+				A02014822C6A5349009E3615 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0925C6A2C6A42F500C62C01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0925C762C6A42F600C62C01 /* Preview Assets.xcassets in Resources */,
+				A0925C732C6A42F600C62C01 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A02014772C6A5348009E3615 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A02014802C6A5348009E3615 /* ContentView.swift in Sources */,
+				A020147E2C6A5348009E3615 /* AceEditorExample_MACApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0925C682C6A42F500C62C01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0925C712C6A42F500C62C01 /* ContentView.swift in Sources */,
+				A0925C6F2C6A42F500C62C01 /* AceEditorExample_iOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		08E5C4F924EE3D31000E8954 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		08E5C4FA24EE3D31000E8954 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A02014882C6A5349009E3615 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "AceEditorExample-MAC/AceEditorExample_MAC.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AceEditorExample-MAC/Preview Content\"";
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Dwarves Foundattion. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.editor.AceEditorExample-MAC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A02014892C6A5349009E3615 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "AceEditorExample-MAC/AceEditorExample_MAC.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AceEditorExample-MAC/Preview Content\"";
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Dwarves Foundattion. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.editor.AceEditorExample-MAC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A0925C782C6A42F600C62C01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AceEditorExample-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.editor.AceEditorExample-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A0925C792C6A42F600C62C01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AceEditorExample-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.editor.AceEditorExample-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08E5C4E324EE3D2E000E8954 /* Build configuration list for PBXProject "AceEditorExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08E5C4F924EE3D31000E8954 /* Debug */,
+				08E5C4FA24EE3D31000E8954 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A02014872C6A5349009E3615 /* Build configuration list for PBXNativeTarget "AceEditorExample-MAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A02014882C6A5349009E3615 /* Debug */,
+				A02014892C6A5349009E3615 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0925C772C6A42F600C62C01 /* Build configuration list for PBXNativeTarget "AceEditorExample-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0925C782C6A42F600C62C01 /* Debug */,
+				A0925C792C6A42F600C62C01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A02014752C6A4964009E3615 /* SwiftyAceEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftyAceEditor;
+		};
+		A020148A2C6A53C4009E3615 /* SwiftyAceEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftyAceEditor;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 08E5C4E024EE3D2E000E8954 /* Project object */;
+}

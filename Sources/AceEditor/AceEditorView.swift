@@ -9,48 +9,31 @@ import WebKit
     public typealias ViewRepresentable = UIViewRepresentable
 #endif
 
-
-//fileprivate class UICodeWebViewController: UIViewController, WKNavigationDelegate {
-//    var webView: CodeWebView!
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        webView = CodeWebView(frame: view.bounds)
-//        webView.navigationDelegate = self
-//        view.addSubview(webView)
-//
-//    }
-//
-//    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//        // After the webpage has loaded, use JavaScript to set focus on a specific element
-//        let focusScript = "editor.focus();"
-//        webView.evaluateJavaScript(focusScript, completionHandler: nil)
-//    }
-//}
-
-public struct CodeViewer: ViewRepresentable {
+public struct AceEditorView: ViewRepresentable {
     
     @Binding var content: String
     @Environment(\.colorScheme) var colorScheme
     var textDidChanged: ((String) -> Void)?
 
-    private let darkTheme: CodeWebView.Theme
-    private let lightTheme: CodeWebView.Theme
+    private let mode: AceEditorWebView.Mode
+    private let darkTheme: AceEditorWebView.Theme
+    private let lightTheme: AceEditorWebView.Theme
     private let isReadOnly: Bool
     private let fontSize: CGFloat
     private let showGutter: Bool
     
     public init(
         content: Binding<String>,
-        darkTheme: CodeWebView.Theme = .solarized_dark,
-        lightTheme: CodeWebView.Theme = .solarized_light,
+        mode: AceEditorWebView.Mode,
+        darkTheme: AceEditorWebView.Theme = .solarized_dark,
+        lightTheme: AceEditorWebView.Theme = .solarized_light,
         isReadOnly: Bool = false,
         fontSize: CGFloat = 12,
         showGutter: Bool = true,
         textDidChanged: ((String) -> Void)? = nil
     ) {
         self._content = content
+        self.mode = mode
         self.darkTheme = darkTheme
         self.lightTheme = lightTheme
         self.isReadOnly = isReadOnly
@@ -68,10 +51,10 @@ public struct CodeViewer: ViewRepresentable {
                     showGutter: showGutter )
     }
     
-    private func makeWebView(context: Context) -> CodeWebView {
-        let codeView = CodeWebView()
+    private func makeWebView(context: Context) -> AceEditorWebView {
+        let codeView = AceEditorWebView()
 
-        codeView.setMode(.plantuml)
+        codeView.setMode(mode)
         codeView.setReadOnly(isReadOnly)
         codeView.setFontSize(fontSize)
         codeView.setContent(content)
@@ -87,7 +70,7 @@ public struct CodeViewer: ViewRepresentable {
         return codeView
     }
     
-    private func updateView(_ webview: CodeWebView, context: Context) {
+    private func updateView(_ webview: AceEditorWebView, context: Context) {
         if context.coordinator.content != content {
             context.coordinator.content =  content
             webview.setContent(content)
@@ -130,38 +113,38 @@ public struct CodeViewer: ViewRepresentable {
     }
     
     // MARK: macOS
-    public func makeNSView(context: Context) -> CodeWebView {
+    public func makeNSView(context: Context) -> AceEditorWebView {
         makeWebView(context: context)
     }
     
-    public func updateNSView(_ webview: CodeWebView, context: Context) {
+    public func updateNSView(_ webview: AceEditorWebView, context: Context) {
         updateView(webview, context: context)
     }
     
     // MARK: iOS
-    public func makeUIView(context: Context) -> CodeWebView {
+    public func makeUIView(context: Context) -> AceEditorWebView {
         makeWebView(context: context)
     }
     
-    public func updateUIView(_ webview: CodeWebView, context: Context) {
+    public func updateUIView(_ webview: AceEditorWebView, context: Context) {
         updateView(webview, context: context)
     }
 }
 
-public extension CodeViewer {
+public extension AceEditorView {
     
     class Coordinator: NSObject {
         var content: String
         var colorScheme: ColorScheme
         var fontSize: CGFloat
         var showGutter: Bool
-        var darkTheme:CodeWebView.Theme
-        var lightTheme:CodeWebView.Theme
+        var darkTheme:AceEditorWebView.Theme
+        var lightTheme:AceEditorWebView.Theme
 
         init(content: String,
              colorScheme: ColorScheme,
-             lightTheme:CodeWebView.Theme,
-             darkTheme:CodeWebView.Theme,
+             lightTheme:AceEditorWebView.Theme,
+             darkTheme:AceEditorWebView.Theme,
              fontSize: CGFloat,
              showGutter: Bool ) {
             
@@ -176,15 +159,35 @@ public extension CodeViewer {
     }
 }
 
-#if DEBUG
-struct CodeViewer_Previews : PreviewProvider {
-    static private var jsonString = """
-    {
-        "hello": "world"
-    }
-    """
-    static var previews: some View {
-        CodeViewer(content: .constant(jsonString))
-    }
+
+//fileprivate class UICodeWebViewController: UIViewController, WKNavigationDelegate {
+//    var webView: CodeWebView!
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        webView = CodeWebView(frame: view.bounds)
+//        webView.navigationDelegate = self
+//        view.addSubview(webView)
+//
+//    }
+//
+//    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//        // After the webpage has loaded, use JavaScript to set focus on a specific element
+//        let focusScript = "editor.focus();"
+//        webView.evaluateJavaScript(focusScript, completionHandler: nil)
+//    }
+//}
+
+
+#Preview {
+
+    AceEditorView(
+        content: .constant("Hello WORLD!"),
+        mode: .plain_text,
+        fontSize: 35
+        )
+        
+    
+
 }
-#endif

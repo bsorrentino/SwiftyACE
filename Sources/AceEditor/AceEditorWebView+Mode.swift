@@ -8,7 +8,7 @@
 import Foundation
 
 
-extension CodeWebView {
+extension AceEditorWebView {
     
     public enum Mode: String {
         case abap = "abap"
