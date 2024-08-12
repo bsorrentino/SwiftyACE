@@ -18,6 +18,8 @@ import AceEditor
 struct ContentView: View {
     @State private var text = "HELLO ACE!"
     
+    var body: some View {
+
         AceEditorView(
             content: $text,
             mode: .plain_text,
