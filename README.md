@@ -34,8 +34,8 @@ struct ContentView: View {
 ```
 
 ## Requirements
-- iOS >= v14
-- macOS >= v11
+- iOS >= v16
+- macOS >= v13
 
 
 [Ace Editor]: https://ace.c9.io
