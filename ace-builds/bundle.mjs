@@ -3,7 +3,7 @@ import path from "path";
 
 
 // const targetPath = "dist";
-const targetPath = path.join( '..', 'Sources', 'CodeViewer', 'Resources', 'ace.bundle')
+const targetPath = path.join( '..', 'Sources', 'AceEditor', 'Resources', 'ace.bundle')
 
 /**
  * [copyModesAndSnippet description]
@@ -61,10 +61,13 @@ const copyFiles = async () => {
                 fileName.startsWith('theme-')       
             ;
     }
+    
     return fs.copy( srcPath, targetPath, { overwrite: true, filter: filter, recursive: false } )
+            .then( () => fs.copyFile( 'index.html', path.join(targetPath, 'index.html') ) )
+
 }
 
 copyFiles()
 .then( () => copyBuiltInlModesAndSnippet( 'plain_text' ) )
-.then( () => copyCustomModesAndSnippet( 'mermaid1' ) )
+.then( () => copyCustomModesAndSnippet( 'mermaid' ) )
 .then(() => console.info( "files copied!") )
