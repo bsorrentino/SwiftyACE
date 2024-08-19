@@ -1,21 +1,5 @@
-define('ace/mode/mermaid', function (require, exports, module) {
-  var oop = require("ace/lib/oop");
-  var TextMode = require("ace/mode/text").Mode;
-  var MermaidHighlightRules = require("ace/mode/mermaid_highlight_rules").MermaidHighlightRules;
-
-  var Mode = function () {
-    this.HighlightRules = MermaidHighlightRules;
-  };
-  oop.inherits(Mode, TextMode);
-
-  (function () {
-    this.$id = "ace/mode/mermaid";
-  }).call(Mode.prototype);
-
-  exports.Mode = Mode;
-});
-
-define('ace/mode/mermaid_highlight_rules', function (require, exports, module) {
+ace.define('ace/mode/mermaid_highlight_rules', ["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function (require, exports, module) 
+{
   var oop = require("ace/lib/oop");
   var TextHighlightRules = require("ace/mode/text_highlight_rules").TextHighlightRules;
 
@@ -23,19 +7,19 @@ define('ace/mode/mermaid_highlight_rules', function (require, exports, module) {
     this.$rules = {
       start: [{
         token: "keyword.diagram",
-        regex: "^(graph|flowchart|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|journey)\\b"
+        regex: /^(?:graph|flowchart|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|journey)\b/
       },
       {
         token: "keyword.direction",
-        regex: "(direction|TD|TB|LR|RL|TOP)"
+        regex: /(?:direction|TD|TB|LR|RL|TOP)\b/
       }, 
       {
         token: "keyword.operator",
-        regex: "(-->|==>|-.->|===>|<-->|<==>"
+        regex: /(?:-->|==>|-.->|===>|<-->|<==>)/
       }, 
       {
-        token: "keyword",
-        regex: "subgraph"
+        token: "keyword.subgraph",
+        regex: /^\s*(?:subgraph|end)\b/
       }, 
       {
         token: "string",
@@ -70,3 +54,30 @@ define('ace/mode/mermaid_highlight_rules', function (require, exports, module) {
 
   exports.MermaidHighlightRules = MermaidHighlightRules;
 });
+
+ace.define("ace/mode/mermaid",["require","exports","module","ace/mode/mermaid_highlight_rules","ace/mode/text","ace/lib/oop"], function(require, exports, module) 
+{
+    "use strict";
+    var oop = require("ace/lib/oop");
+    var TextMode = require("ace/mode/text").Mode;
+    var MermaidHighlightRules = require("ace/mode/mermaid_highlight_rules").MermaidHighlightRules;
+  
+    var Mode = function () {
+      this.HighlightRules = MermaidHighlightRules;
+    };
+    oop.inherits(Mode, TextMode);
+  
+    (function () {
+      this.$id = "ace/mode/mermaid";
+    }).call(Mode.prototype);
+  
+    exports.Mode = Mode;
+  });
+  
+(function() {
+  ace.require(["ace/mode/mermaid"], function(m) {
+      if (typeof module == "object" && typeof exports == "object" && module) {
+          module.exports = m;
+      }
+  });
+})();
