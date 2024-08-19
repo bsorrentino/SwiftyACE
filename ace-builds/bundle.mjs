@@ -63,11 +63,11 @@ const copyFiles = async () => {
     }
     
     return fs.copy( srcPath, targetPath, { overwrite: true, filter: filter, recursive: false } )
-            .then( () => fs.copyFile( 'index.html', path.join(targetPath, 'index.html') ) )
-
+            
 }
 
 copyFiles()
 .then( () => copyBuiltInlModesAndSnippet( 'plain_text' ) )
 .then( () => copyCustomModesAndSnippet( 'mermaid' ) )
+.then( () => fs.copyFile( 'index.html', path.join(targetPath, 'index.html') ) )
 .then(() => console.info( "files copied!") )
