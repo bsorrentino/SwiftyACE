@@ -128,6 +128,7 @@ extension AceEditorWebView {
 //        case pig = "pig"
         case plain_text = "plain_text"
 //        case plantuml = "plantuml"
+        case plantuml = "plantuml"
 //        case powershell = "powershell"
 //        case praat = "praat"
 //        case prisma = "prisma"
