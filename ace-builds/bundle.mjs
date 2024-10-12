@@ -68,6 +68,7 @@ const copyFiles = async () => {
 
 copyFiles()
 .then( () => copyBuiltInlModesAndSnippet( 'plain_text' ) )
+.then( () => copyCustomModesAndSnippet( 'plantuml' ) )
 .then( () => copyCustomModesAndSnippet( 'mermaid' ) )
 .then( () => fs.copyFile( 'index.html', path.join(targetPath, 'index.html') ) )
 .then(() => console.info( "files copied!") )

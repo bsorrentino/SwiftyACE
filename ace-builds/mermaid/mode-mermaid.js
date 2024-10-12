@@ -10,12 +10,20 @@ ace.define('ace/mode/mermaid_highlight_rules', ["require","exports","module","ac
         regex: /^(?:graph|flowchart|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|journey)\b/
       },
       {
+        token: "entity.name.mermaid", // sequence declarations
+        regex: /^\s*(?:participant|actor|autonumber|box|end|(de)?activate)|Note (right of|left of|over)\b/
+      },
+      {
         token: "keyword.direction",
         regex: /(?:direction|TD|TB|LR|RL|TOP)\b/
       }, 
       {
-        token: "keyword.operator",
-        regex: /(?:-->|==>|-.->|===>|<-->|<==>)/
+        token: "keyword.mermaid_arrow", // sequence arrow
+        regex: /(?:-{1,2}>{1,2}|<<-{1,2}>>|-{1,2}x|-{1,2}[)])/
+      }, 
+      {
+        token: "keyword.mermaid_arrow",
+        regex: /(?:->|-->|==>|-.->|===>|<-->|<==>)/
       }, 
       {
         token: "keyword.subgraph",
@@ -24,6 +32,10 @@ ace.define('ace/mode/mermaid_highlight_rules', ["require","exports","module","ac
       {
         token: "string",
         regex: '"(?=.)(\\\\\\\\|\\\\"|[^"\\\\])*?"'
+      }, 
+      {
+        token: "comment",
+        regex: ":\s*.+"
       }, 
       {
         token: "comment",
