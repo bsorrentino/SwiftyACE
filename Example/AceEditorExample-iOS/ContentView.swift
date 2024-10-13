@@ -105,11 +105,12 @@ struct ContentView: View {
             // First Tab
             AceEditorView(
                 content: $mermaid_text,
-                mode: .mermaid,
-                darkTheme: .monokai,
-                lightTheme: .eclipse,
-                isReadOnly: false,
-                fontSize: 20
+                options: AceEditorView.Options(
+                    mode: .mermaid,
+                    darkTheme: .monokai,
+                    lightTheme: .eclipse,
+                    isReadOnly: false,
+                    fontSize: 20 )
             )
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -129,11 +130,13 @@ struct ContentView: View {
             // Second Tab
             AceEditorView(
                 content: $plantuml_text,
-                mode: .plantuml,
-                darkTheme: .monokai,
-                lightTheme: .chrome,
-                isReadOnly: false,
-                fontSize: 20
+                options: AceEditorView.Options(
+                    mode: .plantuml,
+                    darkTheme: .monokai,
+                    lightTheme: .chrome,
+                    isReadOnly: false,
+                    fontSize: 20 )
+                
             )
             .tabItem {
                 Text("PlantUML")
