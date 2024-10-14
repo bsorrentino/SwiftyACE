@@ -50,10 +50,10 @@ flowchart LR
 let mermaid_sequence =
 """
 sequenceDiagram
-    participant User
-    participant Client
-    participant AuthorizationServer
-    User -> Client: Requests authorization
+    actor User as U
+    participant  Client as CL
+    participant AuthorizationServer 
+    User -> C: Requests authorization
     Client -> AuthorizationServer: Redirects user for authorization
     AuthorizationServer -> User: Prompts user to login and authorize
     User -> AuthorizationServer: Enters credentials and authorizes
@@ -124,7 +124,7 @@ end note
 
 struct ContentView: View {
     
-    @State private var mermaid_text = mermaid_flowchart
+    @State private var mermaid_text = mermaid_sequence
     @State private var plantuml_text = plauntuml_sample
 
     var body: some View {

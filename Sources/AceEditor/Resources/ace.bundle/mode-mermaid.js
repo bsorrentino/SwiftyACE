@@ -927,13 +927,14 @@ ace.define('ace/mode/mermaid_highlight_rules', [
                         "text",
                         "keyword.control.mermaid",
                         "text",
-                        "variable",
-                        "text",
+                        "entity.name.mermaid",
+                        //"text",
                         "keyword.control.mermaid",
-                        "text",
-                        "string"
+                        //"text",
+                        "entity.name.mermaid"
                     ],
-                    regex: /(\s*)(participant|actor)(\s+)((?:(?! as )["\(\)$&%\^\/#.?!*=<>\'\\\w\s])+)(\s*)((?:as)?)(\s)((?:["\(\)$&%\^\/#.,?!*=<>\'\\\w\s]+)?)/,
+                    regex: /(\s*)(participant|actor)(\s+)((?:(?! as )["\(\)$&%\^\/#.?!*=<>\'\\\w\s])+)(?:(\sas\s)?)((?:["\(\)$&%\^\/#.,?!*=<>\'\\\w\s]+)?)$/,
+                    //regex: /(\s*)(participant|actor)(\s+)((?:(?! as )["\(\)$&%\^\/#.?!*=<>\'\\\w\s])+)(\s*)((?:as)?)(\s)((?:["\(\)$&%\^\/#.,?!*=<>\'\\\w\s]+)?)/,
                     caseInsensitive: true,
                     comment: "(participant)(Actor)(as)?(Label)?"
                 }, {
