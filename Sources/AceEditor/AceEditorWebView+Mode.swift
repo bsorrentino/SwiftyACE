@@ -107,6 +107,8 @@ extension AceEditorWebView {
 //        case maze = "maze"
 //        case mediawiki = "mediawiki"
 //        case mel = "mel"
+        case mermaid = "mermaid"
+
 //        case mixal = "mixal"
 //        case mushcode = "mushcode"
 //        case mysql = "mysql"
@@ -125,6 +127,7 @@ extension AceEditorWebView {
 //        case php_laravel_blade = "php_laravel_blade"
 //        case pig = "pig"
         case plain_text = "plain_text"
+//        case plantuml = "plantuml"
         case plantuml = "plantuml"
 //        case powershell = "powershell"
 //        case praat = "praat"

@@ -10,17 +10,6 @@
         bottom: 0;
         left: 0;
     }
-    /*
-    .ace_keyword.ace_mermaid_arrow {
-        color: #e40be4; 
-        font-weight: normal;
-    }
-    .ace_entity.ace_name.ace_mermaid {
-        color: rgb(12, 37, 228);
-        font-weight: normal;
-    }
-    */
-
 </style>
 </head>
 <body>
@@ -28,32 +17,33 @@
 <div id="editor">
 </div>
     
-<script src="./ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="./ext-language_tools.js"></script>
-<script src="./ext-emmet.js"></script>
+<script src="./node_modules/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="./node_modules/ace-builds/src-noconflict/ext-language_tools.js"></script>
+<script src="./node_modules/ace-builds/src-noconflict/ext-emmet.js"></script>
 
 <script>
     var editor = ace.edit("editor");
     editor.setShowPrintMargin(false);
     
-    editor.session.on('change', function(delta) {
-        let message = editor.getValue();
-        window.webkit.messageHandlers.aceEditorDidChanged.postMessage(message);
-    });
+    // editor.session.on('change', function(delta) {
+    //     let message = editor.getValue();
+    //     window.webkit.messageHandlers.aceEditorDidChanged.postMessage(message);
+    // });
 
     ace.require("ace/ext/language_tools");
     editor.setOptions({
+        mode: 'ace/mode/mermaid',
         enableSnippets: true,
         enableBasicAutocompletion: true,
         enableLiveAutocompletion: true,
         enableEmmet: true,
         useWorker: false,
-        theme: "ace/theme/github",
+        theme: "ace/theme/idle_fingers",
         showPrintMargin: false,
         showFoldWidgets: false
     });
 
-    window.webkit.messageHandlers.aceEditorDidReady.postMessage(null); // Need at lead 1 arg
+    // window.webkit.messageHandlers.aceEditorDidReady.postMessage(null); // Need at lead 1 arg
 </script>
 </body>
 </html>

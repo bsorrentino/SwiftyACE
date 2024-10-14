@@ -10,62 +10,45 @@ import WebKit
 #endif
 
 public struct AceEditorView: ViewRepresentable {
-    
-    @Binding var content: String
     @Environment(\.colorScheme) var colorScheme
+
+    @Binding var content: String
     var textDidChanged: ((String) -> Void)?
 
-    private let mode: AceEditorWebView.Mode
-    private let darkTheme: AceEditorWebView.Theme
-    private let lightTheme: AceEditorWebView.Theme
-    private let isReadOnly: Bool
-    private let fontSize: CGFloat
-    private let showGutter: Bool
+    private let options: Options
     
     public init(
         content: Binding<String>,
-        mode: AceEditorWebView.Mode,
-        darkTheme: AceEditorWebView.Theme = .solarized_dark,
-        lightTheme: AceEditorWebView.Theme = .solarized_light,
-        isReadOnly: Bool = false,
-        fontSize: CGFloat = 12,
-        showGutter: Bool = true,
+        options: Options,
         textDidChanged: ((String) -> Void)? = nil
+        
     ) {
         self._content = content
-        self.mode = mode
-        self.darkTheme = darkTheme
-        self.lightTheme = lightTheme
-        self.isReadOnly = isReadOnly
-        self.fontSize = fontSize
         self.textDidChanged = textDidChanged
-        self.showGutter = showGutter
+        self.options = options
     }
     
     public func makeCoordinator() -> Coordinator {
         Coordinator(content: content,
                     colorScheme: colorScheme,
-                    lightTheme: lightTheme,
-                    darkTheme: darkTheme,
-                    fontSize: fontSize,
-                    showGutter: showGutter )
+                    options: options)
     }
     
     private func makeWebView(context: Context) -> AceEditorWebView {
         let codeView = AceEditorWebView()
 
-        codeView.setMode(mode)
-        codeView.setReadOnly(isReadOnly)
-        codeView.setFontSize(fontSize)
+        codeView.setMode(options.mode)
+        codeView.setReadOnly(options.isReadOnly)
+        codeView.setFontSize(options.fontSize)
         codeView.setContent(content)
         codeView.clearSelection()
-        codeView.setShowGutter(showGutter)
+        codeView.setShowGutter(options.showGutter)
         codeView.textDidChanged = { text in
             self.content = text
             context.coordinator.content = text
             self.textDidChanged?(text)
         }
-        codeView.setTheme( colorScheme == .dark ? darkTheme : lightTheme )
+        codeView.setTheme( colorScheme == .dark ? options.darkTheme : options.lightTheme )
         
         return codeView
     }
@@ -77,19 +60,19 @@ public struct AceEditorView: ViewRepresentable {
             print(content)
         }
         
-        if context.coordinator.fontSize != fontSize {
-            context.coordinator.fontSize =  fontSize
-            webview.setFontSize(fontSize)
+        if context.coordinator.options.fontSize != options.fontSize {
+            context.coordinator.options.fontSize =  options.fontSize
+            webview.setFontSize(options.fontSize)
         }
         
-        if context.coordinator.showGutter != showGutter {
-            context.coordinator.showGutter =  showGutter
-            webview.setShowGutter(showGutter)
+        if context.coordinator.options.showGutter != options.showGutter {
+            context.coordinator.options.showGutter =  options.showGutter
+            webview.setShowGutter(options.showGutter)
         }
 
         /// Theme update
-        let isLightThemeChanged     = context.coordinator.lightTheme != lightTheme
-        let isDarkThemeChanged      = context.coordinator.darkTheme != darkTheme
+        let isLightThemeChanged     = context.coordinator.options.lightTheme != options.lightTheme
+        let isDarkThemeChanged      = context.coordinator.options.darkTheme != options.darkTheme
         let isColorSchemeChanged    = context.coordinator.colorScheme != colorScheme
         
         if isColorSchemeChanged || isLightThemeChanged || isDarkThemeChanged {
@@ -98,14 +81,16 @@ public struct AceEditorView: ViewRepresentable {
                 context.coordinator.colorScheme = colorScheme
             }
             if isLightThemeChanged {
-                context.coordinator.lightTheme = lightTheme
+                context.coordinator.options.lightTheme = options.lightTheme
             }
             if isDarkThemeChanged {
-                context.coordinator.darkTheme = darkTheme
+                context.coordinator.options.darkTheme = options.darkTheme
             }
             
             if isColorSchemeChanged || (colorScheme == .dark && isDarkThemeChanged) || (colorScheme == .light && isLightThemeChanged) {
-                colorScheme == .dark ? webview.setTheme(darkTheme) : webview.setTheme(lightTheme)
+                colorScheme == .dark ?
+                    webview.setTheme(options.darkTheme) :
+                    webview.setTheme(options.lightTheme)
                 webview.clearSelection() // force ace.js editor to re-render itself
             }
         }
@@ -136,29 +121,48 @@ public extension AceEditorView {
     class Coordinator: NSObject {
         var content: String
         var colorScheme: ColorScheme
-        var fontSize: CGFloat
-        var showGutter: Bool
-        var darkTheme:AceEditorWebView.Theme
-        var lightTheme:AceEditorWebView.Theme
+        var options: Options
 
         init(content: String,
              colorScheme: ColorScheme,
-             lightTheme:AceEditorWebView.Theme,
-             darkTheme:AceEditorWebView.Theme,
-             fontSize: CGFloat,
-             showGutter: Bool ) {
+             options: Options ) {
             
             self.content = content
             self.colorScheme = colorScheme
-            self.darkTheme = darkTheme
-            self.lightTheme = lightTheme
-            self.fontSize = fontSize
-            self.showGutter = showGutter
+            self.options = options
         }
         
     }
 }
 
+public extension AceEditorView {
+    
+    struct Options {
+        var mode: AceEditorWebView.Mode
+        var darkTheme: AceEditorWebView.Theme
+        var lightTheme: AceEditorWebView.Theme
+        var isReadOnly: Bool
+        var fontSize: CGFloat
+        var showGutter: Bool
+
+        public init(
+            mode: AceEditorWebView.Mode,
+            darkTheme: AceEditorWebView.Theme = .solarized_dark,
+            lightTheme: AceEditorWebView.Theme = .solarized_light,
+            isReadOnly: Bool = false,
+            fontSize: CGFloat = 12,
+            showGutter: Bool = true
+        ) {
+            self.mode = mode
+            self.darkTheme = darkTheme
+            self.lightTheme = lightTheme
+            self.isReadOnly = isReadOnly
+            self.fontSize = fontSize
+            self.showGutter = showGutter
+        }
+    }
+
+}
 
 //fileprivate class UICodeWebViewController: UIViewController, WKNavigationDelegate {
 //    var webView: CodeWebView!
@@ -184,8 +188,7 @@ public extension AceEditorView {
 
     AceEditorView(
         content: .constant("Hello WORLD!"),
-        mode: .plain_text,
-        fontSize: 35
+        options: AceEditorView.Options(mode: .plain_text, fontSize: 35)
         )
         
     

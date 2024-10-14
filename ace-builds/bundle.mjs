@@ -3,7 +3,7 @@ import path from "path";
 
 
 // const targetPath = "dist";
-const targetPath = path.join( '..', 'Sources', 'CodeViewer', 'Resources', 'ace.bundle')
+const targetPath = path.join( '..', 'Sources', 'AceEditor', 'Resources', 'ace.bundle')
 
 /**
  * [copyModesAndSnippet description]
@@ -13,6 +13,7 @@ const targetPath = path.join( '..', 'Sources', 'CodeViewer', 'Resources', 'ace.b
  * @return  {Promise<void>}  completion handler
  */
 const copyModesAndSnippet = async (  srcPath, syntax ) => {
+    console.debug(  srcPath, syntax );
 
     const filter = async (src, dest) => { 
         
@@ -24,8 +25,9 @@ const copyModesAndSnippet = async (  srcPath, syntax ) => {
 
         const fileName = path.basename(src)
 
-        const accept =   fileName === `mode-${syntax}.js`   ||
-                fileName === `${syntax}.js`      
+        const accept =   path.extname(fileName)==='.js' &&
+                         (fileName.startsWith(`mode-${syntax}`) ||
+                         fileName.startsWith(`${syntax}`))  
             ;
         if( accept ) {
             console.debug( `coping: ${fileName} ...`)
@@ -38,8 +40,9 @@ const copyModesAndSnippet = async (  srcPath, syntax ) => {
 const copyBuiltInlModesAndSnippet = async ( syntax ) => {
     return copyModesAndSnippet( path.join('.', 'node_modules', 'ace-builds', 'src-noconflict' ), syntax )
 }
-const copyCustomModesAndSnippet = async ( syntax ) => {
-    return copyModesAndSnippet( path.join('.', syntax ), syntax )
+const copyCustomModesAndSnippet = async ( syntax_folder, syntax_name ) => {
+    if( !syntax_name ) syntax_name = syntax_folder
+    return copyModesAndSnippet( path.join('.', syntax_folder ), syntax_name )
 }
 
 const copyFiles = async () => {
@@ -61,10 +64,14 @@ const copyFiles = async () => {
                 fileName.startsWith('theme-')       
             ;
     }
+    
     return fs.copy( srcPath, targetPath, { overwrite: true, filter: filter, recursive: false } )
+            
 }
 
 copyFiles()
 .then( () => copyBuiltInlModesAndSnippet( 'plain_text' ) )
-//.then( () => copyCustomModesAndSnippet( 'plantuml' ) )
+.then( () => copyCustomModesAndSnippet( 'plantuml' ) )
+.then( () => copyCustomModesAndSnippet( 'mermaid', 'mermaid' ) )
+.then( () => fs.copyFile( 'index.html', path.join(targetPath, 'index.html') ) )
 .then(() => console.info( "files copied!") )
