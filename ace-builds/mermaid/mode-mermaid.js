@@ -469,9 +469,9 @@ ace.define('ace/mode/mermaid_highlight_rules', [
                     "text",
                     "keyword.control.mermaid",
                     "text",
-                    "entity.name.function.mermaid"
+                    "keyword.control.mermaid"
                 ],
-                regex: /^(\s*)(graph|flowchart)(\s+)([\p{Letter}\ 0-9]+)/,
+                regex: /^(\s*)(graph|flowchart)(\s*)(?:(TD|LR)?)$/,
                 push: [{
                     token: "text",
                     regex: /(?:^|\G)(?=\s*[`:~]{3,}\s*$)/,
