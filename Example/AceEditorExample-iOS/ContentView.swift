@@ -9,14 +9,42 @@
 import SwiftUI
 import AceEditor
 
-let mermaid_flochart =
+let mermaid_flowchart =
 """
-flowchart TD
-A[Christmas] -->|Get money| B(Go shopping)
-B --> C{Let me think}
-C -->|One| D[Laptop]
-C -->|Two| E[iPhone]
-C -->|Three| F[fa:fa-car Car]
+---
+title: Java to TypeScript Conversion Process
+---
+flowchart LR
+
+    subgraph "Java Compiler"
+        B(Java2TypeScript Processor) 
+    end
+   
+    subgraph "Java Project"
+        direction LR
+        A[Package_Info.java]:::javaSrc ---|Lookup annotations| B 
+        C[Dependencies Classpath]:::javaSrc ---|Lookup classes| B
+    end
+
+    subgraph "Typescript"
+        D[&lt;Output>.d.ts]:::tsFile
+        E[&lt;Output>_types.ts]:::tsFile
+    end
+    
+    B o-->|Generate| D 
+    B o-->|Generate| E
+    
+
+    %% class B Processor;
+    
+    %% Legend
+    %% note right of B
+    %% The process begins with the execution of the 'javac' command.
+    %% The 'Java2TypeScript Processor' reads the 'Package_Info.java' file.
+    %% The 'Dependencies Classpath' is used to lookup necessary classes.
+    %% The 'Java2TypeScript Processor' generates the TypeScript definition and declaration files.
+    %% end note
+
 """
 
 let mermaid_sequence =
@@ -96,7 +124,7 @@ end note
 
 struct ContentView: View {
     
-    @State private var mermaid_text = mermaid_sequence
+    @State private var mermaid_text = mermaid_flowchart
     @State private var plantuml_text = plauntuml_sample
 
     var body: some View {
