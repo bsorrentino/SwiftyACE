@@ -33,14 +33,23 @@
 <script src="./ext-emmet.js"></script>
 
 <script>
+    const debounce = (func, delay) => {
+        let timeoutId;
+        return (...args) => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func(...args), delay);
+        };
+    };
+    
     var editor = ace.edit("editor");
     editor.setShowPrintMargin(false);
     
-    editor.session.on('change', function(delta) {
-        let message = editor.getValue();
+    const changeHandler = debounce( delta => {
+        const message = editor.getValue();
         window.webkit.messageHandlers.aceEditorDidChanged.postMessage(message);
-    });
+    }, 300);
 
+    editor.session.on('change', changeHandler);
     ace.require("ace/ext/language_tools");
     editor.setOptions({
         enableSnippets: true,
