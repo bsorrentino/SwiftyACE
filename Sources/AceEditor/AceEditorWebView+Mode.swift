@@ -1,8 +1,7 @@
 //
-//  File.swift
-//  
+// AceEditorWebView+Mode.swift
+// SwiftyACE  
 //
-//  Created by Bartolomeo Sorrentino on 21/08/23.
 //
 
 import Foundation
