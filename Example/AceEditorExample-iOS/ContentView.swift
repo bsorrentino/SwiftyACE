@@ -130,31 +130,32 @@ struct ContentView: View {
     var body: some View {
         
         TabView {
-            // First Tab
-            AceEditorView(
-                content: $mermaid_text,
-                options: AceEditorView.Options(
-                    mode: .mermaid,
-                    darkTheme: .monokai,
-                    lightTheme: .eclipse,
-                    isReadOnly: false,
-                    fontSize: 20 )
-            )
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        print("Pushed reload!")
-                        NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
-                    }) {
-                        Image(systemName: "arrow.clockwise")
-                        Text("Reload")
+            NavigationStack {
+                AceEditorView(
+                    content: $mermaid_text,
+                    options: AceEditorView.Options(
+                        mode: .mermaid,
+                        darkTheme: .monokai,
+                        lightTheme: .eclipse,
+                        isReadOnly: false
+                    ))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            //                            print("Pushed reload!")
+                            //                            NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
+                            mermaid_text = "RELOAD \(Date())"
+                            
+                        }) {
+                            Image(systemName: "arrow.clockwise")
+                            Text("Reload")
+                        }
                     }
                 }
             }
             .tabItem {
                 Text("Memaid")
             }
-
             // Second Tab
             AceEditorView(
                 content: $plantuml_text,
