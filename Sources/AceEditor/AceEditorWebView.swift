@@ -1,9 +1,7 @@
 //
-//  CodeWebView.swift
-//  CodeViewer
+//  AceEditorWebView.swift
+//  SwiftyACE
 //
-//  Created by phucld on 8/20/20.
-//  Copyright © 2020 Dwarves Foundattion. All rights reserved.
 //
 
 import WebKit
@@ -93,20 +91,17 @@ public class AceEditorWebView: CustomView {
         
         currentContent = value
         
+        print( "setContent() value:\n\(value)")
         //
         // It's tricky to pass FULL JSON or HTML text with \n or "", ... into JS Bridge
         // Have to wrap with `data_here`
         // And use String.raw to prevent escape some special string -> String will show exactly how it's
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
         //
-        let first = "const content = String.raw`"
-        let content = """
-        \(value)
-        """
-        let end = "`; editor.setValue(content);"
-        
-        let script = first + content + end
+        let script = "editor.setValue( String.raw`\(value)` );"
         callJavascript(javascriptString: script)
+        
+        print( "setContent() script:\n\(script)")
         
         
     }
