@@ -13,7 +13,7 @@ const targetPath = path.join( '..', 'Sources', 'AceEditor', 'Resources', 'ace.bu
  * @return  {Promise<void>}  completion handler
  */
 const copyModesAndSnippet = async (  srcPath, syntax ) => {
-    console.debug(  srcPath, syntax );
+    // console.debug(  srcPath, syntax );
 
     const filter = async (src, dest) => { 
         
@@ -58,11 +58,16 @@ const copyFiles = async () => {
 
         const fileName = path.basename(src)
 
-        return  fileName === 'ace.js'               || 
+        const accept =  fileName === 'ace.js'               || 
                 fileName === 'worker-base.js'       ||
                 fileName.startsWith('ext-')         ||
                 fileName.startsWith('theme-')       
             ;
+        if( accept ) {
+            console.debug( `coping: ${fileName} ...`)
+        }    
+        return accept
+        
     }
     
     return fs.copy( srcPath, targetPath, { overwrite: true, filter: filter, recursive: false } )
