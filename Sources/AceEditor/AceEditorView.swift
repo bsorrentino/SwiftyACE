@@ -29,8 +29,7 @@ public struct AceEditorView: ViewRepresentable {
     }
     
     public func makeCoordinator() -> Coordinator {
-        Coordinator(content: content,
-                    colorScheme: colorScheme,
+        Coordinator(colorScheme: colorScheme,
                     options: options)
     }
     
@@ -40,26 +39,26 @@ public struct AceEditorView: ViewRepresentable {
         codeView.setMode(options.mode)
         codeView.setReadOnly(options.isReadOnly)
         codeView.setFontSize(options.fontSize)
-        codeView.setContent(content)
         codeView.clearSelection()
         codeView.setShowGutter(options.showGutter)
+        codeView.setTheme( colorScheme == .dark ? options.darkTheme : options.lightTheme )
+
         codeView.textDidChanged = { text in
+            guard self.content != text else {
+                return
+            }
+            print("textDidChanged: \(text)")
             self.content = text
-            context.coordinator.content = text
             self.textDidChanged?(text)
         }
-        codeView.setTheme( colorScheme == .dark ? options.darkTheme : options.lightTheme )
+        codeView.setContent(content)
         
         return codeView
     }
     
     private func updateView(_ webview: AceEditorWebView, context: Context) {
-        if context.coordinator.content != content {
-            context.coordinator.content =  content
-            webview.setContent(content)
-            print(content)
-        }
-        
+        webview.setContent(content)
+
         if context.coordinator.options.fontSize != options.fontSize {
             context.coordinator.options.fontSize =  options.fontSize
             webview.setFontSize(options.fontSize)
@@ -119,15 +118,12 @@ public struct AceEditorView: ViewRepresentable {
 public extension AceEditorView {
     
     class Coordinator: NSObject {
-        var content: String
         var colorScheme: ColorScheme
         var options: Options
 
-        init(content: String,
-             colorScheme: ColorScheme,
+        init(colorScheme: ColorScheme,
              options: Options ) {
             
-            self.content = content
             self.colorScheme = colorScheme
             self.options = options
         }
