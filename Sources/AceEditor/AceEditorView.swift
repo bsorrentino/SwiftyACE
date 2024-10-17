@@ -53,8 +53,7 @@ public struct AceEditorView: ViewRepresentable {
             guard self.content != text else {
                 return
             }
-            context.coordinator.editing = true
-            print("textDidChanged: \(text)")
+            context.coordinator.content = text
             self.content = text
             self.textDidChanged?(text)
         }
@@ -63,12 +62,11 @@ public struct AceEditorView: ViewRepresentable {
     }
     
     private func updateView(_ webview: AceEditorWebView, context: Context) {
-        defer { context.coordinator.editing = false }
         
-        if( !context.coordinator.editing ) {
+        if( context.coordinator.content != content ) {
+            context.coordinator.content = content
             webview.setContent(content)
-        }
-        
+        }        
 
         if context.coordinator.options.fontSize != options.fontSize {
             context.coordinator.options.fontSize =  options.fontSize
@@ -129,7 +127,7 @@ public struct AceEditorView: ViewRepresentable {
 public extension AceEditorView {
     
     class Coordinator: NSObject {
-        var editing: Bool
+        var content: String
         var colorScheme: ColorScheme
         var options: Options
 
@@ -137,7 +135,7 @@ public extension AceEditorView {
         init(colorScheme: ColorScheme,
              options: Options ) {
             
-            self.editing = false
+            self.content = ""
             self.colorScheme = colorScheme
             self.options = options
         }
