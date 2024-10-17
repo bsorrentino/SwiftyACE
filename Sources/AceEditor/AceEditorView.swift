@@ -65,8 +65,11 @@ public struct AceEditorView: ViewRepresentable {
         
         if( context.coordinator.content != content ) {
             context.coordinator.content = content
+            let handler = webview.textDidChanged
+            webview.textDidChanged = nil // disable textDidChanched 
             webview.setContent(content)
-        }        
+            webview.textDidChanged = handler
+        }
 
         if context.coordinator.options.fontSize != options.fontSize {
             context.coordinator.options.fontSize =  options.fontSize
