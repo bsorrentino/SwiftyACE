@@ -43,13 +43,25 @@
     
     var editor = ace.edit("editor");
     editor.setShowPrintMargin(false);
-    
-    const changeHandler = debounce( delta => {
+
+    const changeHandler = delta => {
         const message = editor.getValue();
         window.webkit.messageHandlers.aceEditorDidChanged.postMessage(message);
-    }, 100);
+    };
 
-    editor.session.on('change', changeHandler);
+    // const changeHandler = debounce(delta => {
+    //     const message = editor.getValue();
+    //     window.webkit.messageHandlers.aceEditorDidChanged.postMessage(message);
+    // }, 100);
+
+    editor.session.on('change', changeHandler );
+
+    function aceEditorSetContent( content ) {
+        editor.session.off( 'change', changeHandler );
+        editor.setValue( content, 1 );
+        editor.session.on( 'change', changeHandler );
+    }
+
     ace.require("ace/ext/language_tools");
     editor.setOptions({
         enableSnippets: true,
