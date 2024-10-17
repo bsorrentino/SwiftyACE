@@ -98,7 +98,8 @@ public class AceEditorWebView: CustomView {
         // And use String.raw to prevent escape some special string -> String will show exactly how it's
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
         //
-        let script = "editor.setValue( String.raw`\(value)`, 1 );"
+        //let script = "editor.setValue( String.raw`\(value)`, 1 );"
+        let script = "aceEditorSetContent( String.raw`\(value)` );"
         callJavascript(javascriptString: script)
         
         print( "setContent() script:\n\(script)")
