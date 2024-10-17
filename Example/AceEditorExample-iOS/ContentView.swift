@@ -124,22 +124,29 @@ end note
 
 struct ContentView: View {
     
-    @State private var mermaid_text = mermaid_sequence
+    @State private var mermaid_text = mermaid_flowchart
     @State private var plantuml_text = plauntuml_sample
 
     var body: some View {
         
         TabView {
             NavigationStack {
-                AceEditorView(
-                    content: $mermaid_text,
-                    options: AceEditorView.Options(
-                        mode: .mermaid,
-                        darkTheme: .monokai,
-                        lightTheme: .eclipse,
-                        isReadOnly: false,
-                        fontSize: 20
-                    ))
+                VStack {
+                    AceEditorView(
+                        content: $mermaid_text,
+                        options: AceEditorView.Options(
+                            mode: .mermaid,
+                            darkTheme: .monokai,
+                            lightTheme: .eclipse,
+                            isReadOnly: false,
+                            fontSize: 20
+                        ))
+                    Divider()
+                    ScrollView {
+                        Text( "```\(mermaid_text)```" )
+                    }
+                    
+                }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
