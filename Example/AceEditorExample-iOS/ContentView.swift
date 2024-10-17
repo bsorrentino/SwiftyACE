@@ -137,7 +137,8 @@ struct ContentView: View {
                         mode: .mermaid,
                         darkTheme: .monokai,
                         lightTheme: .eclipse,
-                        isReadOnly: false
+                        isReadOnly: false,
+                        fontSize: 20
                     ))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
