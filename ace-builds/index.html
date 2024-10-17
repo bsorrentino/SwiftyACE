@@ -47,7 +47,7 @@
     const changeHandler = debounce( delta => {
         const message = editor.getValue();
         window.webkit.messageHandlers.aceEditorDidChanged.postMessage(message);
-    }, 300);
+    }, 100);
 
     editor.session.on('change', changeHandler);
     ace.require("ace/ext/language_tools");
